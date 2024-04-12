@@ -1683,7 +1683,7 @@ G:AddToggle({
 	end    
 })
 
-G:AddParagraph("TOGGLE FARM","Click The Box To Enable Mode Farm You Like >w<")
+G:AddParagraph("T","Click The Box To Enable Mode Farm You Like >w<")
 
 G:AddToggle({
 	Name = "ออโต้ฟาร์มเลเวล",
