@@ -1519,3 +1519,30 @@ MakeWindow({
     }
   }
 })
+MinimizeButton({
+  Image = "",
+  Size = {40, 40},
+  Color = Color3.fromRGB(10, 10, 10),
+  Corner = true,
+  Stroke = false,
+  StrokeColor = Color3.fromRGB(255, 0, 0)
+})
+
+local Main = MakeTab({Name = "Main"})
+local Item = MakeTab({Name = "Item"})
+local Raid = MakeTab({Name = "Raid"})
+local Combat = MakeTab({Name = "Combat"})
+local Shop = MakeTab({Name = "Shop"})
+local Setting= MakeTab({Name = "Setting"})
+local Misc = MakeTab({Name = "Misc"})
+
+local section = AddSection(Main, {"Main Farm"})
+SetSection(section, "Auto")
+local Toggle = AddToggle(Main, {
+  Name = "Auto Farm Level",
+  Default = false,
+  Callback = function(Value)
+    _G.LevelFarm = Value
+        CancelTween(_G.LevelFarm)
+  end
+})
