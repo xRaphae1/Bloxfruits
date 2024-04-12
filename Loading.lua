@@ -1547,6 +1547,229 @@ TL:AddDropdown({
     end    
 })
 
+if Sea2 then
+TL:AddDropdown({
+    Name = "Select Island",
+    Default = "",
+    Options = {"The Cafe",
+    "Frist Spot",
+    "Dark Area",
+    "Flamingo Mansion",
+    "Flamingo Room",
+    "Green Zone",
+    "Factory",
+    "Colossuim",
+    "Zombie Island",
+    "Two Snow Mountain",
+    "Punk Hazard",
+    "Cursed Ship",
+    "Ice Castle",
+    "Forgotten Island",
+    "Ussop Island",
+    "Mini Sky Island"},
+    Flag = "Select Island",
+    Save = true,
+    Callback = function(Value)
+        _G.SelectIsland = Value
+    end    
+})
+end
+
+if Sea3 then
+TL:AddDropdown({
+    Name = "Select Island",
+    Default = "",
+    Options = {"Mansion",
+    "Port Town",
+    "Great Tree",
+    "Castle On The Sea",
+    "MiniSky", 
+    "Hydra Island",
+    "Floating Turtle",
+    "Haunted Castle",
+    "Ice Cream Island",
+    "Peanut Island",
+    "Cake Island",
+    "Cocoa Island",
+    "Tiki Outpost New",
+    "Candy Island Newโ"},
+    Flag = "Select Island",
+    Save = true,
+    Callback = function(Value)
+        _G.SelectIsland = Value
+    end    
+})
+end
+
+TL:AddButton({
+    Name = "Teleport To Island",
+    Callback = function()
+        TweenIsland()
+    end
+})
+
+TL:AddButton({
+    Name = "Teleport To Frozen Leviathan",
+    Callback = function()
+        TweenFrozen()
+    end
+})
+
+TL:AddButton({
+    Name = "Teleport To Mirrage Island",
+    Callback = function()
+        TweenDaobian()
+    end
+})
+
+TL:AddButton({
+	Name = "Stop Teleport",
+	Callback = function()
+        CancelTween(All)
+  	end    
+})
+
+local Section = DF:AddSection({
+	Name = "Devil Fruit"
+})
+
+DF:AddButton({
+    Name = "Random Fruits",
+    Callback = function()
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("Cousin","Buy")
+    end    
+})
+
+DF:AddToggle({
+    Name = "Auto Random Fruits",
+    Default = false,
+    Flag = "Auto Random Fruits",
+    Save = true,
+    Callback = function(Value)
+        _G.Random_Auto = Value
+    end    
+})
+
+DF:AddToggle({
+    Name = "Auto Store Fruit",
+    Default = false,
+    Flag = "Auto Store Fruit",
+    Save = true,
+    Callback = function(Value)
+        _G.AutoStoreFruit = Value
+    end    
+})
+
+DF:AddToggle({
+    Name = "Teleport To Fruit",
+    Default = false,
+    Flag = "Teleport To Fruit",
+    Save = true,
+    Callback = function(Value)
+        _G.Tweenfruit = Value
+        CancelTween(_G.Tweenfruit)
+    end    
+})
+
+local Section = ER:AddSection({
+	Name = "ESP"
+})
+
+ER:AddToggle({
+    Name = "ESP Players",
+    Default = false,
+    Flag = "ESP Players",
+    Save = true,
+    Callback = function(Value)
+        _G.ESPPlayers = Value
+        UpdatePlayerChams()
+    end    
+})
+
+ER:AddToggle({
+    Name = "ESP Fruits",
+    Default = false,
+    Flag = "ESP Fruits",
+    Save = true,
+    Callback = function(Value)
+        _G.ESPFRUIT = Value
+        while _G.ESPFRUIT do wait()
+        UpdateDevilChams() 
+        end
+    end    
+})
+
+ER:AddToggle({
+    Name = "ESP Island",
+    Default = false,
+    Flag = "ESP Island",
+    Save = true,
+    Callback = function(Value)
+        _G.ESPISLAND = Value
+        while _G.ESPISLAND do wait()
+        UpdateIslandESP() 
+        end
+    end    
+})
+
+local Section = ER:AddSection({
+	Name = "One Click Raid"
+})
+
+_G.SelectChip = selectraids or ""
+    Raidslist = {}
+    RaidsModule = require(game.ReplicatedStorage.Raids)
+    for i,v in pairs(RaidsModule.raids) do
+        table.insert(Raidslist,v)
+    end
+    for i,v in pairs(RaidsModule.advancedRaids) do
+        table.insert(Raidslist,v)
+end
+
+ER:AddDropdown({
+    Name = "Select Chips",
+    Default = "",
+    Options = Raidslist,
+    Flag = "Select Chips",
+    Save = true,
+    Callback = function(Value)
+        _G.SelectChip = Value
+    end    
+})
+
+ER:AddToggle({
+    Name = "One Click Full Raid",
+    Default = false,
+    Flag = "Auto Start",
+    Save = true,
+    Callback = function(Value)
+        _G.OneClick = Value
+    end    
+})
+
+local Section = SE:AddSection({
+	Name = "Boats"
+})
+
+SE:AddButton({
+	Name = "Buy Boats",
+	Callback = function()
+      	Teleport(ChoMuaThuyen)
+        wait(0.5)
+        local args = {
+        [1] = "BuyBoat",
+        [2] = "PirateBrigade"
+        }
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+  	end    
+})
+
+SE:AddToggle({
+    Name = "Set Speed Boats To 350",
+    Default = false,
+    Flag = "Set Speed Boats To 350",
+    Save = true,
+    Callback = function(Value)
         _G.SpeedBoats = Value
     end    
 })
@@ -1689,6 +1912,352 @@ RC:AddButton({
         end
   	end    
 })
+
+local Section = RC:AddSection({
+	Name = "Trials"
+})
+
+RC:AddToggle({
+	Name = "Auto Trials",
+	Default = false,
+	Save = true,
+	Flag = "Auto Trials",
+	Callback = function(Value)
+		_G.AutoTrials = Value
+        CancelTween(_G.AutoTrials)
+	end    
+})
+
+RC:AddToggle({
+	Name = "Auto Train Race",
+	Default = false,
+	Save = true,
+	Flag = "Auto Train Race",
+	Callback = function(Value)
+		_G.TrainToc = Value
+        _G.BattocV4detraintoc = Value
+        CancelTween(_G.BattocV4detraintoc)
+        CancelTween(_G.TrainToc)
+	end    
+})
+
+RC:AddToggle({
+	Name = "Auto Kill Players After Trials",
+	Default = false,
+	Save = true,
+	Flag = "Auto Kill Players After Trials",
+	Callback = function(Value)
+		_G.TrialV4 = Value
+        CancelTween(_G.TrialV4)
+	end    
+})
+
+
+
+RC:AddDropdown({
+	Name = "Select Weapon Trials",
+	Default = "Melee",
+	Options = {"Melee", "Sword"},
+	Callback = function(Value)
+		_G.SelectWeaponTrial = Value
+	end    
+})
+
+RC:AddToggle({
+    Name = "Skill Z",
+    Default = false,
+    Flag = "Skill Z",
+    Save = true,
+    Callback = function(Value)
+        _G.Z = Value
+    end    
+})
+
+RC:AddToggle({
+    Name = "Skill X",
+    Default = false,
+    Flag = "Skill X",
+    Save = true,
+    Callback = function(Value)
+        _G.X = Value
+    end    
+})
+
+RC:AddToggle({
+    Name = "Skill C",
+    Default = false,
+    Flag = "Skill C",
+    Save = true,
+    Callback = function(Value)
+        _G.C = Value
+    end    
+})
+
+
+RC:AddToggle({
+    Name = "Skill V",
+    Default = false,
+    Flag = "Skill V",
+    Save = true,
+    Callback = function(Value)
+        _G.V = Value
+    end    
+})
+
+local Section = ST:AddSection({
+	Name = "Status Servers"
+})
+
+local Moon = ST:AddLabel("ฤeo co Moon")
+local Elite = ST:AddLabel("Elite : โ Not Spawn")
+local MobKatakuri = ST:AddLabel("Defeat : 0")
+local Mirrage = ST:AddLabel("Mirrage : โ Not Spawn")
+local KitsuneIsland = ST:AddLabel("Kitsune Island : โ Not Spawn")
+local Frozen = ST:AddLabel("Frozen Dimension : โ Not Spawn")
+
+local Section = ST:AddSection({
+	Name = "Servers"
+})
+
+ST:AddTextbox({
+    Name = "Job Id",
+    Default = "",
+    TextDisappear = true,
+    Callback = function(Value)
+        _G.Job = Value 
+    end	  
+})
+
+ST:AddButton({
+    Name = "Join Job Id",
+    Callback = function()
+        _G.AutoRejoin = false
+        game:GetService("TeleportService"):TeleportToPlaceInstance(game.placeId,_G.Job, game.Players.LocalPlayer)
+      end    
+})
+
+ST:AddButton({
+    Name = "Copy Job Id",
+    Callback = function()
+        setclipboard(tostring(game.JobId))
+      end    
+    })
+
+ST:AddButton({
+    Name = "Hop Sever",
+    Callback = function()
+        Hop()
+      end    
+})
+
+ST:AddButton({
+    Name = "Rejoin Sever",
+    Callback = function()
+        game:GetService("TeleportService"):Teleport(game.PlaceId, game:GetService("Players").LocalPlayer)
+      end    
+})
+
+local Section = SH:AddSection({
+    Name = "Melee"
+})
+
+SH:AddButton({
+    Name = "Black Leg",
+    Callback = function()
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyBlackLeg")
+    end    
+})
+
+SH:AddButton({
+    Name = "Electrol",
+    Callback = function()
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyElectro")
+    end    
+})
+
+SH:AddButton({
+    Name = "FishMan Karate",
+    Callback = function()
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyFishmanKarate")
+    end    
+})
+
+SH:AddButton({
+    Name = "Dragon Claw",
+    Callback = function()
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BlackbeardReward","DragonClaw","1")
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BlackbeardReward","DragonClaw","2")
+    end    
+})
+
+SH:AddButton({
+    Name = "SuperHuman",
+    Callback = function()
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuySuperhuman")
+    end    
+})
+
+
+SH:AddButton({
+    Name = "Death Step",
+    Callback = function()
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyDeathStep")
+    end    
+})
+
+SH:AddButton({
+    Name = "Electric Claw",
+    Callback = function()
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyElectricClaw")
+    end    
+})
+
+SH:AddButton({
+    Name = "SharkMan Karate",
+    Callback = function()
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuySharkmanKarate",true)
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuySharkmanKarate")
+    end    
+})
+
+SH:AddButton({
+    Name = "Dragon Talon",
+    Callback = function()
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyDragonTalon")
+    end    
+})
+
+SH:AddButton({
+    Name = "GodHuman",
+    Callback = function()
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyGodhuman")
+    end    
+})
+
+local Section = SH:AddSection({
+    Name = "Haki :"
+})
+
+SH:AddButton({
+    Name = "Buy Buso Haki",
+    Callback = function()
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyHaki","Buso")
+    end    
+})
+
+SH:AddButton({
+    Name = "Buy Geppo Haki",
+    Callback = function()
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyHaki","Geppo")
+    end    
+})
+
+SH:AddButton({
+    Name = "Buy Flash Step(Soru)",
+    Callback = function()
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyHaki","Soru")
+    end    
+})
+
+SH:AddButton({
+    Name = "Buy Observation(Ken) Haki",
+    Callback = function()
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("KenTalk","Buy")
+    end    
+})
+
+local Section = SH:AddSection({
+    Name = "Race :"
+})
+
+SH:AddButton({
+    Name = "Buy Ghoul Race",
+    Callback = function()
+        local a = {
+            [1] = "Ectoplasm",
+            [2] = "BuyCheck",
+            [3] = 4
+        }
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(a))
+        local a = {
+            [1] = "Ectoplasm",
+            [2] = "Change",
+            [3] = 4
+        }
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(a))
+    end    
+})
+
+SH:AddButton({
+    Name = "Buy Ghoul Race",
+    Callback = function()
+        local a = {
+            [1] = "CyborgTrainer",
+            [2] = "Buy"
+        }
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(a))
+    end    
+}
+
+})
+
+local Section = S:AddSection({
+	Name = "Bypass"
+})
+
+S:AddToggle({
+	Name = "Bypass Teleport",
+	Default = true,
+	Callback = function(Value)
+		BypassTP = Value
+	end    
+})
+
+local Section = S:AddSection({
+	Name = "Settings Use Skill Players Aura"
+})
+
+S:AddToggle({
+    Name = "Skill Z",
+    Default = false,
+    Flag = "Skill Z",
+    Save = true,
+    Callback = function(Value)
+        _G.Z2 = Value
+    end    
+})
+
+S:AddToggle({
+    Name = "Skill X",
+    Default = false,
+    Flag = "Skill X",
+    Save = true,
+    Callback = function(Value)
+        _G.X2 = Value
+    end    
+})
+
+S:AddToggle({
+    Name = "Skill C",
+    Default = false,
+    Flag = "Skill C",
+    Save = true,
+    Callback = function(Value)
+        _G.C2 = Value
+    end    
+})
+
+S:AddToggle({
+    Name = "Skill V",
+    Default = false,
+    Flag = "Skill V",
+    Save = true,
+    Callback = function(Value)
+        _G.V2 = Value
+    end    
+})
+
+
 
                                         v.Humanoid.WalkSpeed = 0
                                         v.HumanoidRootPart.Size = Vector3.new(80, 80, 80)
