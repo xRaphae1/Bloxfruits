@@ -1488,19 +1488,19 @@ local Window = OrionLib:MakeWindow({Name = "Xozaity HUB", HidePremium = false,In
 
 local I = Window:MakeTab({
 	Name = "Info",
-	Icon = "rbxassetid://16035137478",
+	Icon = "rbxassetid://17113559882",
 	PremiumOnly = false
 })
 
 local G = Window:MakeTab({
 	Name = "General",
-	Icon = "rbxassetid://16035137478",
+	Icon = "rbxassetid://17113764544",
 	PremiumOnly = false
 })
 
 local IQ = Window:MakeTab({
 	Name = "Item & Quest",
-	Icon = "rbxassetid://16035137478",
+	Icon = "rbxassetid://17113787043",
 	PremiumOnly = false
 })
 
@@ -1548,7 +1548,7 @@ local SH = Window:MakeTab({
 
 local S = Window:MakeTab({
 	Name = "Settings",
-	Icon = "rbxassetid://16035137478",
+	Icon = "rbxassetid://17113757441",
 	PremiumOnly = false
 })
 
