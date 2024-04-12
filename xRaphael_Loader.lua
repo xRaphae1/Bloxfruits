@@ -1484,7 +1484,7 @@ game:GetService("Players").LocalPlayer.Idled:connect(function()
 end)
 
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/Nghiavndeptraivcc/Orion-nhu-cut/main/Orion.Source')))()
-local Window = OrionLib:MakeWindow({Name = "Night Hub", HidePremium = false,IntroText = "Night Library", SaveConfig = true, ConfigFolder = "Night Hub"})
+local Window = OrionLib:MakeWindow({Name = "Xozaity HUB", HidePremium = false,IntroText = "Xozaity Library", SaveConfig = true, ConfigFolder = "Xozaity Setting"})
 
 local I = Window:MakeTab({
 	Name = "Info",
@@ -1556,22 +1556,16 @@ local Section = I:AddSection({
     Name = "Info Owner"
 })
 
-I:AddLabel("Owner Name : Lương Minh Nghĩa")
-I:AddLabel("BirthDay : 12/8/2011")
-I:AddLabel("Brothers : Hirimii, T...")
-I:AddLabel("My Discord : https://discord.gg/R4xC3t2Xm8")
-I:AddLabel("I From : VietNam")
+I:AddLabel("By : MerrySubset/Raphael")
+I:AddLabel("BirthDay : 09/03/2008")
 
 local Section = I:AddSection({
-    Name = "Update My Hub"
+    Name = "New Update"
 })
 
 I:AddLabel("Update Bring Mob Large")
 I:AddLabel("Update FastAttack")
 I:AddLabel("Fixed Lag")
-I:AddLabel("Auto Bone Fixed")
-I:AddLabel("Auto Katakuri FIxed")
-I:AddLabel("Auto Mob, boss,... New")
 I:AddLabel("Race V4, Sea Event,... [Comming Soon]")
 
 local Section = G:AddSection({
