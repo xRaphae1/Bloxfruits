@@ -1529,13 +1529,6 @@ MinimizeButton({
 })
 
 local Main = MakeTab({Name = "Main"})
-local Item = MakeTab({Name = "Item"})
-local Raid = MakeTab({Name = "Raid"})
-local Combat = MakeTab({Name = "Combat"})
-local Shop = MakeTab({Name = "Shop"})
-local Setting= MakeTab({Name = "Setting"})
-local Misc = MakeTab({Name = "Misc"})
-
 local section = AddSection(Main, {"Main Farm"})
 SetSection(section, "Auto")
 local Toggle = AddToggle(Main, {
