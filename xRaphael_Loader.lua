@@ -1487,100 +1487,100 @@ local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/Ngh
 local Window = OrionLib:MakeWindow({Name = "Xozaity HUB", HidePremium = false,IntroText = "Xozaity Library", SaveConfig = true, ConfigFolder = "Xozaity Setting"})
 
 local I = Window:MakeTab({
-	Name = "Info",
+	Name = "ข้อมูล",
 	Icon = "rbxassetid://17113559882",
 	PremiumOnly = false
 })
 
 local G = Window:MakeTab({
-	Name = "General",
+	Name = "ทั่วไป",
 	Icon = "rbxassetid://17113764544",
 	PremiumOnly = false
 })
 
 local IQ = Window:MakeTab({
-	Name = "Item & Quest",
+	Name = "ไอเท็ม",
 	Icon = "rbxassetid://17113787043",
 	PremiumOnly = false
 })
 
 local ST = Window:MakeTab({
-	Name = "Status",
+	Name = "สถานะ",
 	Icon = "rbxassetid://17113899373",
 	PremiumOnly = false
 })
 
 local TL = Window:MakeTab({
-	Name = "Travel",
+	Name = "เดินทาง",
 	Icon = "rbxassetid://17113772972",
 	PremiumOnly = false
 })
 
 local DF = Window:MakeTab({
-	Name = "Fruit",
+	Name = "ผลไม้ปีศาจ",
 	Icon = "rbxassetid://17113791651",
 	PremiumOnly = false
 })
 
 local ER = Window:MakeTab({
-	Name = "ESP & Raid",
+	Name = "ตำแหน่งและลงดัน",
 	Icon = "rbxassetid://17113782017",
 	PremiumOnly = false
 })
 
 local SE = Window:MakeTab({
-	Name = "Sea Event",
+	Name = "อีเว้นทะเล",
 	Icon = "rbxassetid://17113776169",
 	PremiumOnly = false
 })
 
 local RC = Window:MakeTab({
-	Name = "Race V4",
+	Name = "เผ่าวี4",
 	Icon = "rbxassetid://17113769048",
 	PremiumOnly = false
 })
 
 local SH = Window:MakeTab({
-	Name = "Shop",
+	Name = "ร้านค้า",
 	Icon = "rbxassetid://17113863743",
 	PremiumOnly = false
 })
 
 local S = Window:MakeTab({
-	Name = "Settings",
+	Name = "ตั้งค่า",
 	Icon = "rbxassetid://17113757441",
 	PremiumOnly = false
 })
 
 local Section = I:AddSection({
-    Name = "Info Owner"
+    Name = "ข้อมูลผู้สร้าง"
 })
 
 I:AddLabel("By : MerrySubset/Raphael")
 I:AddLabel("BirthDay : 09/03/2008")
 
 local Section = I:AddSection({
-    Name = "New Update"
+    Name = "อัพเดตใหม่"
 })
 
-I:AddLabel("Update Bring Mob Large")
-I:AddLabel("Update FastAttack")
-I:AddLabel("Fixed Lag")
-I:AddLabel("Race V4, Sea Event,... [Comming Soon]")
+I:AddLabel("แก้รวมมอนบัค")
+I:AddLabel("แก้ตีเร็วบัค")
+I:AddLabel("แก้แลค")
+I:AddLabel("เพิ่มหมวดเผ่าวี4กับอีเว้นทะเล")
 
 local Section = G:AddSection({
-    Name = "Players User"
+    Name = "ผู้เล่น"
 })
 
 G:AddButton({
-	Name = "Reset Character",
+	Name = "รีเซ็ดตัวละคร",
 	Callback = function()
       	game:GetService("Players").LocalPlayer.Character.Humanoid.Health = 0
   	end    
 })
 
 G:AddButton({
-	Name = "Remove frog",
+	Name = "ลบหมอก",
 	Callback = function()
         game:GetService("Lighting").LightingLayers:Destroy()
         game:GetService("Lighting").Sky:Destroy()
@@ -1588,13 +1588,13 @@ G:AddButton({
 })
 
 local Section = G:AddSection({
-    Name = "Select Tool"
+    Name = "เลือกอาวุธ"
 })
 
-G:AddParagraph("Select Weapon","Click the DropDown and Select Tool You Like To Farm >w<")
+G:AddParagraph("เลือกอาวุธ","")
 
 G:AddDropdown({
-	Name = "Select Weapon",
+	Name = "เลือกอาวุธที่นี่",
 	Default = "Melee",
 	Options = {"Melee", "Sword"},
 	Callback = function(Value)
@@ -1602,10 +1602,10 @@ G:AddDropdown({
 	end    
 })
 
-G:AddParagraph("SETTINGS FARM","Click The Box To Enable Settings Farm You Like >w<")
+G:AddParagraph("ตั้งค่าฟาร์ม","")
 
 G:AddToggle({
-	Name = "Turn On V4",
+	Name = "ออโต้เปิดเผ่าวี4",
 	Default = false,
 	Callback = function(Value)
 		_G.V4 = Value
@@ -1615,7 +1615,7 @@ G:AddToggle({
 G:AddParagraph("TOGGLE FARM","Click The Box To Enable Mode Farm You Like >w<")
 
 G:AddToggle({
-	Name = "Auto Farm",
+	Name = "ออโต้ฟาร์มเลเวล",
 	Default = false,
 	Callback = function(Value)
 		_G.LevelFarm = Value
@@ -1624,7 +1624,7 @@ G:AddToggle({
 })
 
 G:AddToggle({
-	Name = "Auto Katakuri",
+	Name = "ออโต้ฟาร์มคาตาคุริ",
 	Default = false,
 	Callback = function(Value)
 		_G.AutoKatakuri = Value
@@ -1633,7 +1633,7 @@ G:AddToggle({
 })
 
 G:AddToggle({
-	Name = "Auto Bone",
+	Name = "ออโต้ฟาร์มเกาะกระดูก",
 	Default = false,
 	Callback = function(Value)
 		_G.AutoBone = Value
@@ -1642,13 +1642,13 @@ G:AddToggle({
 })
 
 local Section = G:AddSection({
-    Name = "Select Boss"
+    Name = "เลือกบอส"
 })
 
-G:AddParagraph("SELECT BOSS DROPDOWN BETA","CHOOSE BOSS IN THE DROPDOWN TO FARM BOSS, IF NOT BOSS THEN NO FARM!")
+G:AddParagraph("เลือกบอส(BETA)","อาจจะบัคบ้างน่ะครับเพราะเพิ่งทำ")
 
 G:AddDropdown({
-	Name = "Select Boss(Beta)",
+	Name = "เลือกบอส",
 	Default = "",
 	Options = Boss,
 	Callback = function(Value)
@@ -1657,7 +1657,7 @@ G:AddDropdown({
 })
 
 G:AddToggle({
-	Name = "Auto Farm Boss",
+	Name = "ออโต้ฟาร์มบอส",
 	Default = false,
 	Callback = function(Value)
 		_G.AutoBoss = Value
@@ -1666,13 +1666,13 @@ G:AddToggle({
 })
 
 local Section = G:AddSection({
-    Name = "Mob Farm"
+    Name = "ออโต้ฟาร์มมอนสเตอร์"
 })
 
-G:AddParagraph("SELECT MOB DROPDOWN BETA","CHOOSE MOB IN THE DROPDOWN TO FARM BOSS, IF NOT MOB THEN NO FARM!")
+G:AddParagraph("เลือกมอนสเตอร์(BETA)","อาจจะบัคบ้างน่ะครับเพราะเพิ่งทำ")
 
 G:AddDropdown({
-	Name = "Select Mob(Beta)",
+	Name = "เลือกมอนสเตอร์",
 	Default = "",
 	Options = MobList,
 	Callback = function(Value)
@@ -1681,7 +1681,7 @@ G:AddDropdown({
 })
 
 G:AddToggle({
-	Name = "Auto Farm Mob",
+	Name = "ออโต้ฟาร์มมอนสเตอร์",
 	Default = false,
 	Callback = function(Value)
 		_G.AutoMob = Value
@@ -1690,13 +1690,13 @@ G:AddToggle({
 })
 
 local Section = G:AddSection({
-    Name = "Toggle Others"
+    Name = "อีเว้นอื่นๆ"
 })
 
-G:AddParagraph("OTHERS TOGGLE","AUTO ELITE, AUTO PIRATE, AUTO FACTORY")
+G:AddParagraph("อีเว้นเควส","")
 
 G:AddToggle({
-	Name = "Auto Elite",
+	Name = "ออโต้ฟาร์มอีลิธ",
 	Default = false,
 	Callback = function(Value)
 		_G.DjtElite = Value
@@ -1705,7 +1705,7 @@ G:AddToggle({
 })
 
 G:AddToggle({
-	Name = "Auto Pirates",
+	Name = "ออโต้ฟาร์มมอนสเตอร์เกาะกลาง",
 	Default = false,
 	Callback = function(Value)
 		_G.DjtPirates = Value
@@ -1714,7 +1714,7 @@ G:AddToggle({
 })
 
 G:AddToggle({
-	Name = "Auto Factory",
+	Name = "ออโต้ฟาร์มโรงงาน",
 	Default = false,
 	Callback = function(Value)
 		_G.DjtFactorybantumlum = Value
@@ -1723,14 +1723,14 @@ G:AddToggle({
 })
 
 local Section = IQ:AddSection({
-    Name = "Item"
+    Name = "ไอเทม"
 })
 
-IQ:AddParagraph("Item Get","Wait I Update...")
+IQ:AddParagraph("ไอเทม","")
 
 if Sea1 then
     IQ:AddToggle({
-	Name = "Auto Saber",
+	Name = "ออโต้หาดาบเซเบอร์",
 	Default = false,
 	Callback = function(Value)
 		_G.AutoSaber = Value
@@ -1739,7 +1739,7 @@ if Sea1 then
 })
 
 IQ:AddToggle({
-	Name = "Auto Pole",
+	Name = "ออโต้หาโพล(1)",
 	Default = false,
 	Callback = function(Value)
 		_G.Autopole = Value
@@ -1750,7 +1750,7 @@ end
 
 if Sea2 then
     IQ:AddToggle({
-        Name = "Auto Rengoku",
+        Name = "ออโต้หาดาบเรนโงคุ",
         Default = false,
         Callback = function(Value)
             _G.AutoRengoku = Value
@@ -1760,7 +1760,7 @@ if Sea2 then
 end
 
 IQ:AddToggle({
-    Name = "Auto Observation Haki",
+    Name = "ออโต้ฟาร์มฮาคิสังเกตุ",
     Default = false,
     Callback = function(Value)
         _G.AutoKen = Value
@@ -1769,7 +1769,7 @@ IQ:AddToggle({
 })
 
 IQ:AddToggle({
-    Name = "Auto Observation Haki [Hop]",
+    Name = "ออโต้ฟาร์มอาฮิสังเกตุ [ย้ายเซิฟ]",
     Default = false,
     Callback = function(Value)
         _G.AutoKenHop = Value
@@ -1777,9 +1777,9 @@ IQ:AddToggle({
 })
 
 IQ:AddToggle({
-    Name = "Auto SuperHuman",
+    Name = "ออโต้ทำหมัดซุปเปอร์ฮิวแม่น",
     Default = false,
-    Flag = "Auto SuperHuman",
+    Flag = "ออโต้ทำหมัดซุปเปอร์หิวแม่น",
     Save = true,
     Callback = function(Value)
         _G.AutoSuperhuman = Value
@@ -1789,9 +1789,9 @@ IQ:AddToggle({
 
 if Sea2 or Sea3 then
 IQ:AddToggle({
-    Name = "Auto Buy Legend Sword",
+    Name = "ออโต้ซื้อ3ดาบ",
     Default = false,
-    Flag = "Auto Legend",
+    Flag = "ออโต้ซื้อ3ดาบ",
     Save = true,
     Callback = function(Value)
         _G.AutoBuyLegendarySword = Value
@@ -1801,9 +1801,9 @@ end
 
 if Sea3 then
 IQ:AddToggle({
-    Name = "Auto Cavander",
+    Name = "ออโต้ทำดาบคาเวนเดอร์",
     Default = false,
-    Flag = "Auto Cavander",
+    Flag = "ออโต้ทำดาบคาเวนเดอร์",
     Save = true,
     Callback = function(Value)
         _G.AutoCarvender = Value
@@ -1814,9 +1814,9 @@ end
 
 if Sea3 then
 IQ:AddToggle({
-    Name = "Auto Buddy Sword",
+    Name = "ออโต้ทำดาบบิ๊กมัม",
     Default = false,
-    Flag = "Auto Buddy",
+    Flag = "ออโต้ทำดาบบิ๊กมัม",
     Save = true,
     Callback = function(Value)
         _G.AutoBudySword = Value
@@ -1827,9 +1827,9 @@ end
 
 if Sea3 then
     IQ:AddToggle({
-        Name = "Auto Twin Hook",
+        Name = "ออโต้ทำเคียวคู่",
         Default = false,
-        Flag = "Auto Twin",
+        Flag = "ออโต้ทำเคียวคู่",
         Save = true,
         Callback = function(Value)
             _G.AutoTwinHook = Value
@@ -1840,9 +1840,9 @@ end
 
 if Sea3 then
     IQ:AddToggle({
-        Name = "Auto Hallow Scythe",
+        Name = "ออโต้ทำเคียว",
         Default = false,
-        Flag = "Auto Hallow",
+        Flag = "ออโต้ทำเคียว",
         Save = true,
         Callback = function(Value)
             _G.AutoHallowSycthe = Value
@@ -1853,9 +1853,9 @@ end
 
 if Sea3 then
     IQ:AddToggle({
-        Name = "Auto Dark Dragger",
+        Name = "ออโต้ทำโยรุจิ๋ว",
         Default = false,
-        Flag = "Auto Dark",
+        Flag = "ออโต้ทำโยรุจิ๋ว",
         Save = true,
         Callback = function(Value)
             _G.AutoDarkDagger = Value
