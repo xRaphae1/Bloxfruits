@@ -1,3 +1,5 @@
+--Check game & local mob
+
 if game.PlaceId == 2753915549 then
     Sea1 = true
 elseif game.PlaceId == 4442272183 then
@@ -41,6 +43,8 @@ local CbFw2 = CbFw[2]
 local CamShake = require(game.ReplicatedStorage.Util.CameraShaker)
 CamShake:Stop()
 
+--Antikick
+
 function AntiKick()
     for _, descendant in pairs(game:GetService("Players").LocalPlayer.Character:GetDescendants()) do
         if descendant:IsA("LocalScript") then
@@ -60,6 +64,8 @@ function AntiKick()
     end
 end
 AntiKick()
+
+--Level
 
 function QuestCheck()
     MyLevel = game: GetService("Players").LocalPlayer.Data.Level.Value
@@ -679,3 +685,25 @@ function QuestCheck()
     end
     end
     end
+
+--Tween
+
+function Tween(Pos)
+    local Distance = (Pos.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
+    if game.Players.LocalPlayer.Character.Humanoid.Sit then
+        game.Players.LocalPlayer.Character.Humanoid.Sit = false
+    end
+    pcall(function()
+        local tween = game:GetService("TweenService"):Create(
+            game.Players.LocalPlayer.Character.HumanoidRootPart,
+            TweenInfo.new(Distance/300, Enum.EasingStyle.Linear),
+            {CFrame = Pos}
+        )
+        tween:Play()
+        if Distance <= 300 or _G.StopTween then
+            tween:Cancel()
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = Pos
+            NoClip = false
+        end
+    end)
+end
