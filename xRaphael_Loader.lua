@@ -1505,44 +1505,44 @@ local IQ = Window:MakeTab({
 })
 
 local ST = Window:MakeTab({
-	Name = "Status Servers",
-	Icon = "rbxassetid://16035137478",
+	Name = "Status",
+	Icon = "rbxassetid://17113899373",
 	PremiumOnly = false
 })
 
 local TL = Window:MakeTab({
-	Name = "Teleport",
-	Icon = "rbxassetid://16035137478",
+	Name = "Travel",
+	Icon = "rbxassetid://17113772972",
 	PremiumOnly = false
 })
 
 local DF = Window:MakeTab({
-	Name = "Devil Fruit",
-	Icon = "rbxassetid://16035137478",
+	Name = "Fruit",
+	Icon = "rbxassetid://17113791651",
 	PremiumOnly = false
 })
 
 local ER = Window:MakeTab({
 	Name = "ESP & Raid",
-	Icon = "rbxassetid://16035137478",
+	Icon = "rbxassetid://17113782017",
 	PremiumOnly = false
 })
 
 local SE = Window:MakeTab({
 	Name = "Sea Event",
-	Icon = "rbxassetid://16035137478",
+	Icon = "rbxassetid://17113776169",
 	PremiumOnly = false
 })
 
 local RC = Window:MakeTab({
 	Name = "Race V4",
-	Icon = "rbxassetid://16035137478",
+	Icon = "rbxassetid://17113769048",
 	PremiumOnly = false
 })
 
 local SH = Window:MakeTab({
 	Name = "Shop",
-	Icon = "rbxassetid://16035137478",
+	Icon = "rbxassetid://17113863743",
 	PremiumOnly = false
 })
 
