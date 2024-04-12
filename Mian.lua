@@ -1,5 +1,4 @@
 --Check game & local mob
-
 if game.PlaceId == 2753915549 then
     Sea1 = true
 elseif game.PlaceId == 4442272183 then
@@ -44,7 +43,6 @@ local CamShake = require(game.ReplicatedStorage.Util.CameraShaker)
 CamShake:Stop()
 
 --Antikick
-
 function AntiKick()
     for _, descendant in pairs(game:GetService("Players").LocalPlayer.Character:GetDescendants()) do
         if descendant:IsA("LocalScript") then
@@ -66,7 +64,6 @@ end
 AntiKick()
 
 --Level
-
 function QuestCheck()
     MyLevel = game: GetService("Players").LocalPlayer.Data.Level.Value
     if Sea1 then
@@ -705,5 +702,42 @@ function Tween(Pos)
             game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = Pos
             NoClip = false
         end
+    end)
+end
+
+--tp
+function Teleport(P)
+    local Distance = (P.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
+    local Speed = Distance >= 1 and 300 or 1
+    pcall(function()
+        local teleport = game:GetService("TweenService"):Create(
+            game.Players.LocalPlayer.Character.HumanoidRootPart,
+            TweenInfo.new(Distance/Speed, Enum.EasingStyle.Linear),
+            {CFrame = P}
+        )
+        teleport:Play()
+        if _G.StopTween then
+            teleport:Cancel()
+            NoClip = false
+        end
+        NoClip = true
+        wait(Distance/Speed)
+        NoClip = false
+    end)
+end
+
+--BP
+function BP(P)
+	pcall(function()
+        repeat task.wait()
+		    game.Players.LocalPlayer.Character.Humanoid:ChangeState(15)
+		    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = P
+		    task.wait()
+		    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = P
+            task.wait()
+		    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = P
+            task.wait()
+		    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = P
+        until (P.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 2000
     end)
 end
